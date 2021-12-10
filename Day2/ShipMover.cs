@@ -14,19 +14,23 @@ namespace Advent2021.Day2
 
             switch (directionFacing)
             {
-                case Direction.EAST:
+                // case Direction.EAST:
+                case Direction.FORWARD:
                     endingPosition.HorizontalPosition += amount * multiplier;
                     break;
 
-                case Direction.WEST:
+                // case Direction.WEST:
+                case Direction.BACKWARD:
                     endingPosition.HorizontalPosition -= amount * multiplier;
                     break;
 
-                case Direction.NORTH:
+                // case Direction.NORTH:
+                case Direction.DOWN:
                     endingPosition.VerticalPosition += amount * multiplier;
                     break;
 
-                case Direction.SOUTH:
+                // case Direction.SOUTH:
+                case Direction.UP:
                     endingPosition.VerticalPosition -= amount * multiplier;
                     break;
 
