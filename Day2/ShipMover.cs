@@ -8,9 +8,9 @@ namespace Advent2021.Day2
     
     public class ShipMover
     {
-        public static ManhattanLocation MoveForward(ManhattanLocation position, int directionFacing, int amount, int multiplier = 1)
+        public static ManhattanLocation MoveInDirection(ManhattanLocation currentPosition, int directionFacing, int amount, int multiplier = 1)
         {
-            ManhattanLocation endingPosition = new(position.HorizontalPosition, position.VerticalPosition);
+            ManhattanLocation endingPosition = new(currentPosition.HorizontalPosition, currentPosition.VerticalPosition);
 
             switch (directionFacing)
             {
