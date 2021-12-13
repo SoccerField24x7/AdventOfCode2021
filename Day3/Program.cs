@@ -41,6 +41,16 @@
 
             Console.WriteLine(Convert.ToInt32(gamma, 2) * Convert.ToInt32(epsilon, 2));
 
+            // Part II
+
+            for (int i=0; i < bits.Count; i++)
+            {
+                int a = bits[i].Count(x => x == 1);
+                int b = bits[i].Count(x => x == 0);
+
+                if ()
+            }
+
         }
     }
 }
