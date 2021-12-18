@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Constants", "Constants\Cons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day3", "Day3\Day3.csproj", "{605E5A22-7CCC-4C7B-A253-D1FAE9C9C553}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day4", "Day4\Day4.csproj", "{13C92EAB-67B3-4CF0-B91A-6006B92E070B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,5 +88,17 @@ Global
 		{605E5A22-7CCC-4C7B-A253-D1FAE9C9C553}.Release|x64.Build.0 = Release|Any CPU
 		{605E5A22-7CCC-4C7B-A253-D1FAE9C9C553}.Release|x86.ActiveCfg = Release|Any CPU
 		{605E5A22-7CCC-4C7B-A253-D1FAE9C9C553}.Release|x86.Build.0 = Release|Any CPU
+		{13C92EAB-67B3-4CF0-B91A-6006B92E070B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13C92EAB-67B3-4CF0-B91A-6006B92E070B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13C92EAB-67B3-4CF0-B91A-6006B92E070B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{13C92EAB-67B3-4CF0-B91A-6006B92E070B}.Debug|x64.Build.0 = Debug|Any CPU
+		{13C92EAB-67B3-4CF0-B91A-6006B92E070B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{13C92EAB-67B3-4CF0-B91A-6006B92E070B}.Debug|x86.Build.0 = Debug|Any CPU
+		{13C92EAB-67B3-4CF0-B91A-6006B92E070B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13C92EAB-67B3-4CF0-B91A-6006B92E070B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13C92EAB-67B3-4CF0-B91A-6006B92E070B}.Release|x64.ActiveCfg = Release|Any CPU
+		{13C92EAB-67B3-4CF0-B91A-6006B92E070B}.Release|x64.Build.0 = Release|Any CPU
+		{13C92EAB-67B3-4CF0-B91A-6006B92E070B}.Release|x86.ActiveCfg = Release|Any CPU
+		{13C92EAB-67B3-4CF0-B91A-6006B92E070B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
