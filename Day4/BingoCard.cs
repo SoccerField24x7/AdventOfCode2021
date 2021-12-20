@@ -10,7 +10,7 @@ namespace AdventOfCode2021.Day4
     {
         private readonly int _squareSize;
 
-        private List<List<Square>> card = new();
+        private List<List<Square>> _card = new();
 
         public bool IsWinner { get; set; }
 
@@ -35,21 +35,32 @@ namespace AdventOfCode2021.Day4
             // check horizontal
 
             // set iswinner
+
+            return false;
         }
 
-        public void InitRow(List<Square> row)
+        public void InitializeRow(List<Square> newRow)
         {
-            if (row.Count != _squareSize)
+            if (newRow.Count != _squareSize)
             {
                 throw new ArgumentException("The row is not of the correct size");
             }
 
-            if (card.Count == _squareSize)
+            if (_card.Count == _squareSize)
             {
                 throw new ArgumentException("The card already has the required number of rows.");
             }
 
-            card.Add(row);
+            // make sure that none of the new row numbers exist on the card already
+            foreach (List<Square> row in _card)
+            {
+                if (newRow.Any(x => row.Any(y => y.Value == x.Value)))
+                {
+                    throw new Exception("Duplicate number found in another row.");
+                }
+            }
+
+            _card.Add(newRow);
         }
 
         private void CheckVeriticalBingos()

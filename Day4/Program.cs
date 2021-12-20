@@ -27,6 +27,16 @@
             Square e = new Square(11);
 
             List<Square> tmp = new() { a, b, c, d , e };
+
+            card.InitializeRow(tmp);
+
+            a = new Square(44);
+            b = new Square(2);
+            c = new Square(3);
+            d = new Square(11);
+            e = new Square(18);
+
+            card.InitializeRow(new List<Square>{ a, b, c, d, e });
             
 
         }
