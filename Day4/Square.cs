@@ -12,6 +12,11 @@ namespace AdventOfCode2021.Day4
             Value = value;
         }
 
+        public Square(string value)
+        {
+            Value = int.Parse(value);
+        }
+
         public int Value { get; set; }
         public bool Marked { get; set; }
     }
