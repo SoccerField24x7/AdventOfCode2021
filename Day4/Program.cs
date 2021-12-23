@@ -50,6 +50,7 @@
                 {
                     cards.Add(card);
                     card = new();
+                    continue;
                 }
 
                 var nums = row.Split(" ");
