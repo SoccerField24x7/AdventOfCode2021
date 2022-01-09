@@ -26,7 +26,14 @@ namespace AdventOfCode2021.Day4
 
         public void MarkNumberOnCard(int number)
         {
-
+            foreach (var row in _card)
+            {
+                Square square = row.FirstOrDefault(x => x.Value == number);
+                if (square != null)
+                {
+                    square.Marked = true;
+                }
+            }
         }
 
         public bool IsBingo()
