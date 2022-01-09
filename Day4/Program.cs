@@ -9,9 +9,9 @@
     {
         static void Main(string[] args)
         {
-            var bingo = FileHelper.GetFileContents<string>("data/input.txt");
+            var bingoCards = FileHelper.GetFileContents<string>("data/input.txt");
 
-            List<int> numbers = bingo.First().Split(",").Select(int.Parse).ToList();
+            List<int> numbers = bingoCards.First().Split(",").Select(int.Parse).ToList();
 
             // cycle through the rest of the "cards"
             List<BingoCard> cards = new();
@@ -38,13 +38,13 @@
             // card.InitializeRow(new List<Square>{ a, b, c, d, e });
 
             // remove the first row
-            bingo = bingo.GetRange(2, bingo.Count - 2);
+            bingoCards = bingoCards.GetRange(2, bingoCards.Count - 2);
 
             // create a card
             BingoCard card = new();
             List<Square> tempRow = new();
             
-            foreach (string row in bingo)
+            foreach (string row in bingoCards)
             {
                 if (string.IsNullOrEmpty(row))
                 {
@@ -61,7 +61,7 @@
                     if (!string.IsNullOrEmpty(num))
                     {
                         tempRow.Add(new Square(num));
-                    }                    
+                    }
                 }
 
                 card.InitializeRow(tempRow);
