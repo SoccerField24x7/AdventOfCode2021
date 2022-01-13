@@ -32,6 +32,10 @@ namespace AdventOfCode2021.Day4
                 if (square != null)
                 {
                     square.Marked = true;
+
+                    // we marked a number, let's see if we have a winner!
+                    if (IsBingo())
+                        IsWinner = true;
                 }
             }
         }
@@ -72,7 +76,23 @@ namespace AdventOfCode2021.Day4
 
         private void CheckVeriticalBingos()
         {
+            for (int i =0; i < _card[0].Count; i++)
+            {
+                bool bingo = true;
+                foreach (List<Square> column in _card) // s/b row... todo
+                {
+                    if (!column[i].Marked)
+                    {
+                        bingo = false;
+                        continue;
+                    }
+                }
 
+                if (bingo)
+                {
+                    IsWinner = true;
+                }
+            }
         }
 
         private void CheckHorizontalBingos()

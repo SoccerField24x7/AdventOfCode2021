@@ -40,7 +40,7 @@
             // remove the first row
             bingoCards = bingoCards.GetRange(2, bingoCards.Count - 2);
 
-            // create a card
+            // create the first card
             BingoCard card = new();
             List<Square> tempRow = new();
             
@@ -48,6 +48,7 @@
             {
                 if (string.IsNullOrEmpty(row))
                 {
+                    // card's done, add it to the stack and create a new one.
                     cards.Add(card);
                     card = new();
                     continue;
@@ -68,6 +69,14 @@
                 tempRow = new();
             }
 
+            // OK, we have all of the cards... let's start calling those numbers and marking the cards.
+            foreach (int number in numbers)
+            {
+                foreach (BingoCard bc in cards)
+                {
+                    bc.MarkNumberOnCard(number);
+                }
+            }
         }
     }
 }
