@@ -9,7 +9,7 @@
     {
         static void Main(string[] args)
         {
-            var bingoCards = FileHelper.GetFileContents<string>("data/input.txt");
+            var bingoCards = FileHelper.GetFileContents<string>("data/control.txt");
 
             List<int> numbers = bingoCards.First().Split(",").Select(int.Parse).ToList();
 
@@ -69,6 +69,9 @@
                 tempRow = new();
             }
 
+            // add the final card
+            cards.Add(card);
+
             // OK, we have all of the cards... let's start calling those numbers and marking the cards.
             foreach (int number in numbers)
             {
@@ -76,6 +79,19 @@
                 {
                     bc.MarkNumberOnCard(number);
                 }
+
+                if (cards.Any(x => x.IsWinner))
+                {
+                    break;
+                }
+            }
+
+            BingoCard winner = cards.Single(x => x.IsWinner);
+            int unmarkedSum = 0;
+
+            foreach (var row in winner)
+            {
+                
             }
         }
     }

@@ -14,6 +14,8 @@ namespace AdventOfCode2021.Day4
 
         public bool IsWinner { get; set; }
 
+        public int WinningNumber { get; set; }
+
         public BingoCard(int size)
         {
            _squareSize = size;
@@ -35,19 +37,35 @@ namespace AdventOfCode2021.Day4
 
                     // we marked a number, let's see if we have a winner!
                     if (IsBingo())
-                        IsWinner = true;
+                    {
+                        WinningNumber = number;
+                    }
                 }
             }
         }
 
-        public bool IsBingo()
+        public int GetSumOfUnmarkedNumbers()
+        {
+            int sum = 0;
+            foreach (List<Square> line in _card)
+            {
+                sum += line.Where(x => !x.Marked).Sum(x => x.Value);
+            }
+
+            return sum;
+        }
+
+        private bool IsBingo()
         {
             // check vertical
+            CheckVeriticalBingos();
+
             // check horizontal
+            CheckHorizontalBingos();
 
-            // set iswinner
+            // TODO: check diagonal
 
-            return false;
+            return IsWinner;
         }
 
         public void InitializeRow(List<Square> newRow)
@@ -96,8 +114,14 @@ namespace AdventOfCode2021.Day4
         }
 
         private void CheckHorizontalBingos()
-        {
-
+        {   
+            foreach (List<Square> row in _card)
+            {
+                if (row.All( x => x.Marked))
+                {
+                    IsWinner = true;
+                }
+            }
         }
 
         private void CheckDiagonalBingos()
