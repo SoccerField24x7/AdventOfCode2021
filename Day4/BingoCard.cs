@@ -36,7 +36,7 @@ namespace AdventOfCode2021.Day4
                     square.Marked = true;
 
                     // we marked a number, let's see if we have a winner!
-                    if (IsBingo())
+                    if (CheckForBingos())
                     {
                         WinningNumber = number;
                     }
@@ -55,7 +55,42 @@ namespace AdventOfCode2021.Day4
             return sum;
         }
 
-        private bool IsBingo()
+        public void ResetCard()
+        {
+            foreach (List<Square> line in _card)
+            {
+                line.ForEach(x => x.Marked = false);
+            }
+
+            IsWinner = false;
+            WinningNumber = 0;
+        }
+
+        public string PrintCard(BingoCard card)
+        {
+            string result= "";
+
+            foreach (List<Square> line in _card)
+            {
+                foreach (Square square in line)
+                {
+                    if (square.Marked)
+                    {
+                        result += square.Value + "X" + " ";
+                    }
+                    else
+                    {
+                        result += square.Value + " ";
+                    }
+                }
+
+                result += "\n";
+            }
+
+            return result;
+        }
+
+        private bool CheckForBingos()
         {
             // check vertical
             CheckVeriticalBingos();
