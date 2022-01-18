@@ -9,33 +9,12 @@
     {
         static void Main(string[] args)
         {
-            var bingoCards = FileHelper.GetFileContents<string>("data/control.txt");
+            var bingoCards = FileHelper.GetFileContents<string>("data/input.txt");
 
             List<int> numbers = bingoCards.First().Split(",").Select(int.Parse).ToList();
 
             // cycle through the rest of the "cards"
             List<BingoCard> cards = new();
-
-            // BingoCard card = new();
-
-            // // move these to unit tests
-            // Square a = new Square(55);
-            // Square b = new Square(23);
-            // Square c = new Square(6);
-            // Square d = new Square(1);
-            // Square e = new Square(11);
-
-            // List<Square> tmp = new() { a, b, c, d , e };
-
-            // card.InitializeRow(tmp);
-
-            // a = new Square(44);
-            // b = new Square(2);
-            // c = new Square(3);
-            // d = new Square(17);
-            // e = new Square(18);
-
-            // card.InitializeRow(new List<Square>{ a, b, c, d, e });
 
             // remove the first row
             bingoCards = bingoCards.GetRange(2, bingoCards.Count - 2);
@@ -87,11 +66,29 @@
             }
 
             BingoCard winner = cards.Single(x => x.IsWinner);
-            int unmarkedSum = 0;
+            int unmarkedNumbers = winner.GetSumOfUnmarkedNumbers();
 
-            foreach (var row in winner)
+            Console.WriteLine(unmarkedNumbers * winner.WinningNumber);
+
+            // Part II
+            
+            foreach (BingoCard c in cards)
             {
-                
+                c.ResetCard();
+            }
+
+            // call the numbers again
+            foreach (int number in numbers)
+            {
+                foreach (BingoCard bc in cards)
+                {
+                    bc.MarkNumberOnCard(number);
+                }
+
+                if (cards.Any(x => x.IsWinner))
+                {
+                    break;
+                }
             }
         }
     }
