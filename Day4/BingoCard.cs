@@ -16,6 +16,8 @@ namespace AdventOfCode2021.Day4
 
         public int WinningNumber { get; set; }
 
+        public int? WinSequence { get; set; }
+
         public BingoCard(int size)
         {
            _squareSize = size;
@@ -64,6 +66,7 @@ namespace AdventOfCode2021.Day4
 
             IsWinner = false;
             WinningNumber = 0;
+            WinSequence = null;
         }
 
         public string PrintCard(BingoCard card)

@@ -71,25 +71,40 @@
             Console.WriteLine(unmarkedNumbers * winner.WinningNumber);
 
             // Part II
-            
+
             foreach (BingoCard c in cards)
             {
                 c.ResetCard();
             }
 
-            // call the numbers again
+            int _winCounter = 0;
+
+            // call the numbers again, this time keep going until we have no winning cards (or run out of numbers)
             foreach (int number in numbers)
             {
-                foreach (BingoCard bc in cards)
+                foreach (BingoCard bc in cards.Where(x => !x.IsWinner))
                 {
                     bc.MarkNumberOnCard(number);
+
+                    // if this is a winner, let's capture the order
+                    if (bc.IsWinner)
+                    {
+                        bc.WinSequence = _winCounter++;
+                    }
                 }
 
-                if (cards.Any(x => x.IsWinner))
+                if (cards.All(x => x.IsWinner))
                 {
                     break;
                 }
             }
+
+            // get the last winner
+            winner = cards.Where(x => x.IsWinner).OrderByDescending(x => x.WinSequence).First();
+
+            unmarkedNumbers = winner.GetSumOfUnmarkedNumbers();
+
+            Console.WriteLine(unmarkedNumbers * winner.WinningNumber);
         }
     }
 }
